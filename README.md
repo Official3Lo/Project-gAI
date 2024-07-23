@@ -4,8 +4,11 @@ gAI is a web-based RESTful API chatbot with limited response, but also has OPENA
 
 
 Languages: Java, HTML
+
 Framework: Springboot, Maven
+
 Supports: Jsoup.jar
+
 Plugin: Lombok
 
 How to use - Extract rar file into IDE Project folder

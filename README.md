@@ -3,7 +3,7 @@
 gAI is a web-based RESTful API chatbot with limited response, but also has OPENAI chatbot infrastructure engraved into its framework system if so to choose to use it.
 
 
-Languages: Java, HTML
+Languages: Java, HTML, CSS
 
 Framework: Springboot, Maven
 

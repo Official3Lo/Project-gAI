@@ -1,7 +1,8 @@
 # Project-gAI
 
-gAI is a web-based RESTful API chatbot with limited features, but also has OPENAI chatbot infrastructure engraved into its framework system if so to choose to use it.
+gAI is a chatbot integrated into a Web RESTful API and also has the option of OPENAI API chat system engraved into its framework system if so to choose to use it.
 
+Here is a quick preview of the program and its source codes: https://www.youtube.com/watch?v=H7vkqMk1q74
 
 Languages: Java, HTML, CSS, Javascript
 
@@ -15,7 +16,6 @@ Plugin: Lombok
 
 How to use - Extract rar file into IDE Project folder
 
-Quick preview of the program and its source codes: https://www.youtube.com/watch?v=H7vkqMk1q74
 
 Link to my old project: https://github.com/BlackCatCode22/java-final-program-fall-23-Official3Lo
 

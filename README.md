@@ -1,6 +1,6 @@
 # Project-gAI
 
-gAI is a chatbot integrated into a Web RESTful API and also has the option of OPENAI API chat system engraved into its framework system if so to choose to use it.
+gAI is a chatbot integrated into a Web RESTful API, with an option to use the OpenAI API chat system embedded in its framework.
 
 Here is a quick preview of the program and its source codes: https://www.youtube.com/watch?v=H7vkqMk1q74
 

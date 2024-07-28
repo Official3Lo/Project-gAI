@@ -6,7 +6,7 @@ Here is a quick preview of the program and its source codes: https://www.youtube
 
 Languages: Java, HTML, CSS, Javascript
 
-Framework: Springboot
+Framework: Springboot v3.1.4
 
 Tool: Maven 3 (3.9.5)
 

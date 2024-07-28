@@ -10,7 +10,7 @@ Framework: Springboot
 
 Tool: Maven
 
-Supports: Jsoup.jar
+Supports: Jsoup.jar (1.16.2)
 
 Plugin: Lombok
 

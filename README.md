@@ -14,7 +14,7 @@ Supports: Jsoup.jar
 
 Plugin: Lombok
 
-How to use - Extract rar file into IDE Project folder
+For .rar extraction -> How to use: Download then Extract rar file into IDE Project folder
 
 
 Link to my old project: https://github.com/BlackCatCode22/java-final-program-fall-23-Official3Lo

@@ -1,7 +1,0 @@
-This Chatbot program was created by Sitwour L.
-
-Credit(s):
-
-Template - Dennis Mohle, CIT FCC
-
-Core_OPENAI - UTT, Youtube

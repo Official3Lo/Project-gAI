@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>G.A.I. - AI Chatbot | Dev by Sit | CIT63-MOHLE</title>
+
+    <style>
+        body {
+            background-image: url('/img/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Heading */
+        h2 {
+            color: gold;
+            font-style: italic;
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            background-color: #000000;
+            color: white;
+            height: 50px;
+            width: 100px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 18px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        /* Mouse Hovering */
+        input[type="submit"]:hover {
+            background-image: url('/img/x.gif');
+        }
+
+        /* Additional margin for text-areas */
+        textarea {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: white; /* Change the text color */
+            background-color: #808080; /* Change the background color */
+            border: 1px solid #ccc; /* Add a border for clarity */
+            padding: 8px; /* Add padding for better aesthetics */
+        }
+
+        /* Flex container for text-areas */
+        .textarea-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for GAI Chat Logs */
+        #answerDiv {
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+            background-color: #000000;
+        }
+        #chatLog {
+            max-height: 300px; /* Adjust the max height as needed */
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form");
+        const answerDiv = document.getElementById("answerDiv");
+        const clearChatButton = document.getElementById("clearChatButton");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const question = form.querySelector("textarea[name='question']").value;
+
+            const response = await fetch("/ask?question=" + encodeURIComponent(question), {
+                method: "POST",
+                body: JSON.stringify({ question }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            if (response.ok) {
+                const answer = await response.text();
+
+                // Create a new paragraph element for the answer
+                const answerElement = document.createElement("p");
+                answerElement.style.color = 'green';
+                answerElement.textContent = answer;
+
+                // Append the new answer element to the chat log
+                answerDiv.appendChild(answerElement);
+
+                // Set the value of the textarea with the entire chat log
+                answerTextarea.Value = answer;
+
+                // Update tokenUsage and queryUsage with relevant information
+                const tokenUsage = "Tokens used: " + calculateTokenUsage(answer);
+                const queryUsage = "Queries made: " + calculateQueryUsage(answer);
+
+                // Set the values of the textareas
+                document.querySelector("textarea[name='tokenUsage']").value = tokenUsage;
+                document.querySelector("textarea[name='queryUsage']").value = queryUsage;
+
+                // Scroll to the bottom of the chat log
+                answerDiv.scrollTop = answerDiv.scrollHeight;
+            } else {
+                answerTextarea.value = "An error occurred while fetching the answer.";
+            }
+        });
+        clearChatButton.addEventListener("click", async function() {
+            // Make an AJAX request to clear the chat logs
+            const response = await fetch("/clearchat?clear=true", {
+                method: "DELETE",
+            });
+
+            if (response.ok) {
+                // Clear the chat logs in the answerDiv
+                answerDiv.innerHTML = "<p>Chat logs cleared</p>";
+            } else {
+                alert("Failed to clear chat logs");
+            }
+        });
+    });
+</script>
+
+<h2>&#128511; G.A.I. - xDisqus 1.0</h2>
+
+<form method="POST" action="/ask" class="textarea-container">
+    <textarea name="question" rows="10" cols="100"></textarea>
+    <input type="submit" value="Submit">
+    <button id="clearChatButton" type="button">Clear Chat</button>
+</form>
+
+<div id="chatLog" class="textarea-container">
+    <!-- Use a div to display the chat log -->
+    <div id="answerDiv"></div>
+</div>
+
+<div id="tokenUsage"></div>
+<div id="queryUsage"></div>
+
+</body>
+
+</html>

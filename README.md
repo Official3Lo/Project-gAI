@@ -8,7 +8,7 @@ Languages: Java, HTML, CSS, Javascript
 
 Framework: Springboot
 
-Tool: Maven
+Tool: Maven 3 (3.9.5)
 
 Supports: Jsoup.jar (1.16.2)
 

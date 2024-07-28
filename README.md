@@ -4,7 +4,7 @@ gAI is a chatbot integrated into a Web RESTful API, with an option to use the Op
 
 Here is a quick preview of the program and its source codes: https://www.youtube.com/watch?v=H7vkqMk1q74
 
-Languages: Java, HTML, CSS, Javascript
+Languages: Java, HTML
 
 Framework: Springboot v3.1.4
 
